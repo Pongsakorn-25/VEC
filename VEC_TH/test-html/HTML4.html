@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src ="https://cdn.netpie.io/microgear.js"></script>
+<script>
+	const APPID = "NODE01";
+	const KEY ="7U9CaiWEgSIkjcJ";
+	const SECRET ="uzStSfBkkMt3tHJbftwq8gYnh";
+	const ALIAS ="MYJAJVA"; 
+	
+	var microgear = Microgear.create({
+	key: KEY,
+	secret: SECRET,
+	alias : ALIAS
+	});
+	
+	microgear.on('message',function(topic,msg){
+		document.getElementById("BLC").innerHTML= msg ;
+	});
+	
+	microgear.on('connected',function(){
+		microgear.setAlias(ALIAS);
+		//document.getElementById("CON").innerHTML ="CONNECTED";
+		
+		setInterval(function(){
+		console.log("CONNECTED");
+		},10000);
+	});
+	microgear.connect(APPID);
+</script>	
+<script>
+	
+	function UPCLICK()
+	{
+		microgear.chat("NODE010","UP");
+		console.log("UP");
+		//document.getElementById("BLC").innerHTML = "UP";
+	}	
+	function ESCCLICK()
+	{
+		microgear.chat("NODE010","ESC");
+		console.log("ESC");
+		//document.getElementById("BLC").innerHTML = "ESC";
+	}
+	function ENTERCLICK()
+	{
+		microgear.chat("NODE010","ENTER");
+		console.log("ENTER");
+		//document.getElementById("BLC").innerHTML = "ENTER";
+	}
+	function DOWNCLICK()
+	{
+		microgear.chat("NODE010","DOWN");
+		console.log("DOWN");
+		//document.getElementById("BLC").innerHTML = "DOWN";
+	}
+	
+	
+	
+</script>
+</head>
+<body >
+<div id = "CON"></div>
+<div id ="BLC">RED</div>
+<div>
+<table width = "30%">
+	<tr>
+		<th></th>
+		<th><div><button onclick = UPCLICK() id="UP"type="button" onclick="">UP</button></div></th>
+		<th></th>
+	</tr>
+	<tr>
+		<th><div><button onclick = ESCCLICK() id="ESC"type="button" onclick="">ESC</button></div></th>
+		<th></th>
+		<th><div><button onclick = ENTERCLICK() id="ENTER"type="button" onclick="">ENTER</button></div></th>
+	</tr>
+	<tr>
+		<th></th>
+		<th><div><button onclick = DOWNCLICK() id="DOWN"type="button" onclick="">DOWN</button></div></th>
+		<th></th>
+	</tr>
+</table>
+</div>
+</body>
+</html>
+
+

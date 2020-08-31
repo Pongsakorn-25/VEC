@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+		google.load("visualization", "1", {packages: ["geochart"]});
+		google.setOnLoadCallback(drawRegionsMap);
+	  
+	  var x = '';
+	  var y = '';
+	  function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+			//['City', 'Popularity'],		
+			[x,y],
+			
+        ]);
+		console.log("YES");	
+        var options = {
+			region: 'TH',
+            resolution: 'provinces',
+            
+            colorAxis: {colors: ['white', 'yellow', 'orange', 'red']}};
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+	
+    </script>
+	<script type="text/javascript">
+	  
+	  function tackking(){
+			x = document.getElementById("pO")
+			y = document.getElementById("vL")
+			y = Number(y)
+			console.log("YES");
+			
+			
+	  }
+	 
+	  
+    </script>
+	
+  </head>
+  <body>
+    <div>จังหวัด <input id="pO" type="text" value=""> ค่าอะไรสักอย่าง<input id="vL" type="text" value=""> <button onclick="tackking()">ส่ง</button> </div>
+	<div id="regions_div" style="width: 100%; height: 100%;"></div>
+  </body>
+</html>

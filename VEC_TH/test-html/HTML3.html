@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script>
+function colorchange()
+{
+	var y;
+	var x =document.getElementById("ID01").value;
+	x = Number(x);
+	if(x<49)
+	{
+		y =  0;
+		document.getElementById("ID02").style.backgroundColor= "red";
+	}
+	else
+	{
+		y =	 1;
+		document.getElementById("ID02").style.backgroundColor= "blue";
+	}
+	document.getElementById("ID03").innerHTML =y;
+	
+}
+</script>
+</head>
+
+<body>
+<div>
+	<input id="ID01" type="text" value="">
+	<button onclick ="colorchange()">OK</button>
+</div>
+<div id = "ID03">
+
+</div>
+<br>	
+<div>
+	<table id="ID02" border = "1px" width ="100px">
+		<tr>
+			<td>
+			<br>
+			<br>
+			<br>
+			<br>
+			</td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>
